@@ -22,7 +22,7 @@ public class ApiClient {
                 .get(endpoint);
     }
 
-    public Response post(String endpoint, String payload) {
+    public Response post(String endpoint, Object payload) {
 
         return given()
                 .baseUri(BASE_URL)
@@ -33,7 +33,7 @@ public class ApiClient {
                 .post(endpoint);
     }
 
-    public Response put(String endpoint, String payload) {
+    public Response put(String endpoint, Object payload) {
 
         return given()
                 .baseUri(BASE_URL)
