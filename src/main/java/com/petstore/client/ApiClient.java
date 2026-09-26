@@ -7,14 +7,22 @@ import static io.restassured.RestAssured.given;
 
 public class ApiClient {
 
-    private static final String BASE_URL =
-            ConfigReader.get("BASE_URL");
+    private static final String BASE_URL = ConfigReader.get("BASE_URL");
+    private static final String API_KEY = getApiKey();
 
-    private static final String API_KEY =
-            ConfigReader.get("API_KEY");
+    private static String getApiKey() {
+        String apiKey = System.getenv("PETSTORE_API_KEY");
+
+        if (apiKey == null || apiKey.isBlank()) {
+            throw new IllegalStateException(
+                    "PETSTORE_API_KEY environment variable is not set"
+            );
+        }
+
+        return apiKey;
+    }
 
     public Response get(String endpoint) {
-
         return given()
                 .baseUri(BASE_URL)
                 .header("api_key", API_KEY)
@@ -23,7 +31,6 @@ public class ApiClient {
     }
 
     public Response post(String endpoint, Object payload) {
-
         return given()
                 .baseUri(BASE_URL)
                 .header("api_key", API_KEY)
@@ -34,7 +41,6 @@ public class ApiClient {
     }
 
     public Response put(String endpoint, Object payload) {
-
         return given()
                 .baseUri(BASE_URL)
                 .header("api_key", API_KEY)
@@ -45,7 +51,6 @@ public class ApiClient {
     }
 
     public Response delete(String endpoint) {
-
         return given()
                 .baseUri(BASE_URL)
                 .header("api_key", API_KEY)
