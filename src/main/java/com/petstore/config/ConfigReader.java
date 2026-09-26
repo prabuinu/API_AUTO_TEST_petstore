@@ -1,4 +1,4 @@
-package com.petstore.utils;
+package com.petstore.config;
 
 import java.io.IOException;
 import java.io.InputStream;

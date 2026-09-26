@@ -1,6 +1,6 @@
 package com.petstore.steps;
 
-import com.petstore.utils.ApiClient;
+import com.petstore.client.ApiClient;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;

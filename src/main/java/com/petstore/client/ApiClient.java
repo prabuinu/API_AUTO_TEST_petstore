@@ -1,5 +1,6 @@
-package com.petstore.utils;
+package com.petstore.client;
 
+import com.petstore.config.ConfigReader;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
